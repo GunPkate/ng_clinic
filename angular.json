@@ -23,9 +23,27 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/bower_components/bootstrap/dist/css/bootstrap.min.css",
+              "src/bower_components/font-awesome/css/font-awesome.min.css",
+              "src/bower_components/Ionicons/css/ionicons.min.css",
+              "src/bower_components/jvectormap/jquery-jvectormap.css",
+              "src/dist/css/AdminLTE.min.css",
+              "src/dist/css/skins/_all-skins.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/bower_components/jquery/dist/jquery.min.js",
+              "src/bower_components/bootstrap/dist/js/bootstrap.min.js",
+              "src/bower_components/fastclick/lib/fastclick.js",
+              "src/dist/js/adminlte.min.js",
+              "src/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js",
+              "src/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js",
+              "src/plugins/jvectormap/jquery-jvectormap-world-mill-en.js",
+              "src/bower_components/jquery-slimscroll/jquery.slimscroll.min.js",
+              "src/bower_components/chart.js/Chart.js",
+              "src/dist/js/pages/dashboard2.js",
+              "src/dist/js/demo.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -97,5 +115,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
