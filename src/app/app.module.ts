@@ -8,7 +8,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ClinicComponent } from './clinic/clinic.component';
 import { CustomerComponent } from './customer/customer.component';
 import { PetComponent } from './pet/pet.component';
-import { TreatmentComponent } from './treatment/treatment.component';
+import { MedicalSupplyComponent } from './mecialsupply/medicalsupply.component';
 import { CheckupComponent } from './checkup/checkup.component';
 import { ReportComponent } from './report/report.component';
 
@@ -20,7 +20,7 @@ import { ReportComponent } from './report/report.component';
     ClinicComponent,
     CustomerComponent,
     PetComponent,
-    TreatmentComponent,
+    MedicalSupplyComponent,
     CheckupComponent,
     ReportComponent
   ],

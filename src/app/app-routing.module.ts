@@ -1,6 +1,6 @@
 import { ReportComponent } from './report/report.component';
 import { CheckupComponent } from './checkup/checkup.component';
-import { TreatmentComponent } from './treatment/treatment.component';
+import { MedicalSupplyComponent } from './mecialsupply/medicalsupply.component';
 import { CustomerComponent } from './customer/customer.component';
 import { PetComponent } from './pet/pet.component';
 import { ClinicComponent } from './clinic/clinic.component';
@@ -26,8 +26,8 @@ const routes: Routes = [
     component: CustomerComponent
   },
   {
-    path: 'treatment',
-    component: TreatmentComponent
+    path: 'medicalsupply',
+    component: MedicalSupplyComponent
   },
   {
     path: 'checkup',

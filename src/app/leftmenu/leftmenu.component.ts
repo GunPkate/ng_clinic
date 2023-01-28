@@ -29,8 +29,8 @@ export class LeftmenuComponent implements OnInit {
     this.router.navigate(['pet']);
   }
 
-  treatment(): void {
-    this.router.navigate(['treatment']);
+  medicalsupply(): void {
+    this.router.navigate(['medicalsupply']);
   }
 
   checkup(): void {
