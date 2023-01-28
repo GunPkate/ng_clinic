@@ -3,7 +3,7 @@
         <i classs="fa fa-user"></i> Customer list
     </div>
     <div class="box-body">
-        <a class="btn btn-primary">
+        <a class="btn btn-primary" data-toggle="modal" data-target="#modalCustomer">
             <i class="fa fa-plus"></i>Add
         </a>
 
@@ -42,18 +42,59 @@
 <div class="modal" tabindex="-1" id="modalCustomer" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Modal title</h5>
+            <div class="modal-header bg-primary">
+                <h5 class="modal-title">
+                    <i class="fa fa-plus"></i>&nbsp; Customer Information
+                </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <p>Modal body text goes here.</p>
+                <div class="row">
+                    <div class="col-lg-4 col-md-3 col-sm-4">
+                        <div class="from-group">
+                            <label>ID</label>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-3 col-sm-4">
+                        <div class="from-group">
+                            <label>Name</label>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-3 col-sm-4">
+                        <div class="from-group">
+                            <label>Email</label>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-3 col-sm-4">
+                        <div class="from-group">
+                            <label>Phone</label>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-3 col-sm-4">
+                        <div class="from-group">
+                            <label>Line</label>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-3 col-sm-4">
+                        <div class="from-group">
+                            <label>Address</label>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Save changes</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <div class="row text-center">
+                    <button type="button" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
     </div>
