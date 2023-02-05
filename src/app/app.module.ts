@@ -13,6 +13,7 @@ import { CheckupComponent } from './checkup/checkup.component';
 import { ReportComponent } from './report/report.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'
+import { ShareService } from './sharedservice';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { HttpClientModule } from '@angular/common/http'
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [ShareService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
