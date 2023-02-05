@@ -16,6 +16,7 @@ export class CustomerComponent implements OnInit {
   tel:    String| undefined = "0832221111"
   lineId: String| undefined  
   address: String| undefined ="BKK"
+  _id: string | undefined | null = null
 
   customer: Customer[] = [] 
 
@@ -29,18 +30,23 @@ export class CustomerComponent implements OnInit {
   }
 
   save(){
-    if(confirm("Save Customer?")){
+    if(confirm("Register Customer?")){
       let params = {
         code : this.code,
         name : this.name,
         email : this.email,
         tel : this.tel,
         lineId : this.lineId,
-        address : this.address
+        address : this.address,
+        // _id: null
       }
   
-      let path = this.shareService.serverPath+"/customerSave"
-      this.http.post(path,params).subscribe((res:any)=>{alert("save successful")})
+      let path = ""
+      let pathSave = this.shareService.serverPath+"/customerSave"
+      let pathUpdate = this.shareService.serverPath+"/customerUpdate"
+      this._id == null?path = pathSave: path = pathUpdate
+      this.http.post(path,params).subscribe((res:any)=>{alert(path)})
+      this.laod()
     }
   }
 
@@ -50,5 +56,26 @@ export class CustomerComponent implements OnInit {
       console.log("customer",res);
       this.customer = res
     })
+    this._id == null
+  }
+
+  customerDelete(cusItem: Customer){
+    if(confirm(`delete ${cusItem.code} ${cusItem.name} ${cusItem}?`)){
+      let path = this.shareService.serverPath+"/customerDelete"
+      this.http.post(path,cusItem).subscribe((res:any)=>{
+        console.log("customer",res);
+      })
+    }
+    this.laod()
+  }
+
+  getCustomerInfo(item: Customer){
+    this.code   = item.code
+    this.name   = item.name
+    this.email  = item.email
+    this.tel    = item.tel
+    this.lineId   = item.lineId
+    this.address    = item.address
+    this._id = item._id;
   }
 }

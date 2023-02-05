@@ -1,8 +1,9 @@
 export interface Customer{
-    code:   String
-    name:   String
-    email:  String
-    tel:    String
-    lineId: String
-    address: String
+    code:   string
+    name:   string
+    email:  string
+    tel:    string
+    lineId: string
+    address: string
+    _id: string
 }

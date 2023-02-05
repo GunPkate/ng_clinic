@@ -22,10 +22,10 @@
             <tbody>
                 <tr *ngFor="let item of customer">
                     <td>
-                        <a class="btn btn-danger">
+                        <a class="btn btn-danger" (click)="customerDelete(item)">
                             <i class="fa fa-times"></i>
                         </a>&nbsp;
-                        <a class="btn btn-primary">
+                        <a class="btn btn-primary" (click)="getCustomerInfo(item)"  data-toggle="modal" data-target="#modalCustomer">
                             <i class="fa fa-pencil"></i>
                         </a>
                     </td>
