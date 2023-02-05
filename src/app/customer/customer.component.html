@@ -20,7 +20,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <tr *ngFor="let item of customer">
                     <td>
                         <a class="btn btn-danger">
                             <i class="fa fa-times"></i>
@@ -29,10 +29,12 @@
                             <i class="fa fa-pencil"></i>
                         </a>
                     </td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>{{item.code}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.email}}</td>
+                    <td>{{item.tel}}</td>
+                    <td>{{item.lineId}}</td>
+                    <td>{{item.address}}</td>
                 </tr>
             </tbody>
         </table>
@@ -53,46 +55,46 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-lg-4 col-md-3 col-sm-4">
-                        <div class="from-group">
+                        <div class="from-group" >
                             <label>ID</label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" name="code" [(ngModel)]="code">
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-3 col-sm-4">
                         <div class="from-group">
                             <label>Name</label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" name="name" [(ngModel)]="name">
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-3 col-sm-4">
-                        <div class="from-group">
+                        <div class="from-group" >
                             <label>Email</label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" name="email" [(ngModel)]="email">
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-3 col-sm-4">
-                        <div class="from-group">
+                        <div class="from-group" >
                             <label>Phone</label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" name="tel" [(ngModel)]="tel">
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-3 col-sm-4">
-                        <div class="from-group">
+                        <div class="from-group" >
                             <label>Line</label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" name="lineId" [(ngModel)]="lineId">
                         </div>
                     </div>
                     <div class="col-lg-12 col-md-3 col-sm-4">
-                        <div class="from-group">
+                        <div class="from-group" >
                             <label>Address</label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" name="address" [(ngModel)]="address">
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
                 <div class="row text-center">
-                    <button type="button" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-primary" (click)="save()" data-dismiss="modal">Save</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                 </div>
             </div>
