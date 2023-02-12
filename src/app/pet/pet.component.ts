@@ -1,4 +1,6 @@
+import { ShareService } from './../sharedservice';
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-pet',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PetComponent implements OnInit {
 
-  constructor() { }
+  customers: any
+  constructor(private http:HttpClient, private shareService: ShareService) { }
 
   ngOnInit(): void {
+    this.loadData()
+  }
+
+  loadData(){
+    this.http.get(this.shareService.serverPath+"/customerGet").subscribe((res:any)=>{
+      this.customers = res
+    })
   }
 
 }

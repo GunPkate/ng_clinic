@@ -70,7 +70,23 @@
                 </button>
             </div>
             <div class="modal-body">
-                [table]
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>code</th>
+                            <th>Name</th>
+                            <th>Tel</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item in customers">
+                            <td>{{item.code}}</td>
+                            <td>{{item.name}}</td>
+                            <td>{{item.tel}}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
             <div class="modal-footer">
                 <div class="row text-center">

@@ -38,7 +38,7 @@ export class CustomerComponent implements OnInit {
         tel : this.tel,
         lineId : this.lineId,
         address : this.address,
-        // _id: null
+        _id: this._id
       }
   
       let path = ""
@@ -56,7 +56,7 @@ export class CustomerComponent implements OnInit {
       console.log("customer",res);
       this.customer = res
     })
-    this._id == null
+    this._id = null;
   }
 
   customerDelete(cusItem: Customer){
