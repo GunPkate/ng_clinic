@@ -10,6 +10,17 @@ import { HttpClient } from '@angular/common/http';
 export class PetComponent implements OnInit {
 
   customers: any
+  customer : any = {
+    name: null,
+    code: null,
+    _id: null
+  }
+  pet:  any = {
+    customer_id: null,
+    name: null,
+    remark: null
+  }
+
   constructor(private http:HttpClient, private shareService: ShareService) { }
 
   ngOnInit(): void {
@@ -18,8 +29,17 @@ export class PetComponent implements OnInit {
 
   loadData(){
     this.http.get(this.shareService.serverPath+"/customerGet").subscribe((res:any)=>{
-      this.customers = res
+      this.customers = res;
     })
   }
-
+  chooseCustomer(customer: any){
+    this.customer = customer;
+    console.log(customer)
+  }
+  save(){
+    this.pet.customer_id = this.customer._id
+    console.log(this.pet)
+    this.http.post(this.shareService.serverPath+"/petSave",this.pet).subscribe((res:any)=>{
+    })
+  }
 }
