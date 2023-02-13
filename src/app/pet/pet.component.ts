@@ -15,6 +15,7 @@ export class PetComponent implements OnInit {
     code: null,
     _id: null
   }
+  pets: any
   pet:  any = {
     customer_id: null,
     name: null,
@@ -25,6 +26,7 @@ export class PetComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadData()
+    this.loadPetData()
   }
 
   loadData(){
@@ -39,7 +41,12 @@ export class PetComponent implements OnInit {
   save(){
     this.pet.customer_id = this.customer._id
     console.log(this.pet)
-    this.http.post(this.shareService.serverPath+"/petSave",this.pet).subscribe((res:any)=>{
+    this.http.post(this.shareService.serverPath+"/petSave",this.pet).subscribe((res:any)=>{})
+    this.loadPetData()
+  }
+
+  loadPetData(){
+    this.http.get(this.shareService.serverPath+"/petAll").subscribe((res:any)=>{this.pets=res; console.log(this.pets);
     })
   }
 }
