@@ -46,8 +46,8 @@ export class CustomerComponent implements OnInit {
       let pathUpdate = this.shareService.serverPath+"/customerUpdate"
       this._id == null?path = pathSave: path = pathUpdate
       this.http.post(path,params).subscribe((res:any)=>{alert(path)})
-      this.laod()
     }
+    this.laod()
   }
 
   laod(){

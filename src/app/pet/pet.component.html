@@ -48,14 +48,15 @@
                 <tbody>
                     <tr *ngFor="let item of pets">
                         <td class="text-center">
-                            <a class="btn btn-danger">
+                            <a class="btn btn-danger" (click)="deletePet(item)">
                                 <i class="fa fa-times"></i>
-                            </a>
-                            <a class="btn btn-primary">
+                            </a>&nbsp;
+                            <a class="btn btn-primary" (click)="editPet(item)">
                                 <i class="fa fa-pencil"></i>
                             </a>
                         </td>
-                        <td>{{item.customer_id}}</td>
+                        <!-- <td>{{item.customer_id}}</td> -->
+                        <td>{{item.customer[0].name}}</td>
                         <td>{{item.name}}</td>
                         <td>{{item.remark}}</td>
                     </tr>
