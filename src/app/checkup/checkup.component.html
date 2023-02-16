@@ -8,8 +8,8 @@
                 <div class="form-group">
                     <label>Customer ID</label>
                     <div class="input-group">
-                        <input type="text" class="form-control"/>
-                        <a class="btn input-group-addon bg-green" data-toggle="modal" data-target="#modalCustomer">
+                        <input type="text" class="form-control" readonly="readonly" name="Customer.name" [(ngModel)]="customer.name"/>
+                        <a class="btn input-group-addon bg-green" data-toggle="modal" data-target="#modalCustomer" (click)="loadCustomer()">
                             <i class="fa fa-search"></i>
                         </a>
                     </div>
@@ -59,7 +59,30 @@
                 </button>
             </div>
             <div class="modal-body">
-                [table]
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>code</th>
+                            <th>Name</th>
+                            <th>Tel</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of customers">
+                            <td>
+                                <a data-dismiss="modal" (click)="chooseCustomer(item)" class="btn btn-primary">
+                                    <i class="fa fa-check"></i>
+                                    choose 
+                                </a>
+                            </td>
+                            <td>{{item.code}}</td>
+                            <td>{{item.name}}</td>
+                            <td>{{item.tel}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
             </div>
             <div class="modal-footer">
                 <div class="row text-center">
