@@ -16,6 +16,16 @@ export class CheckupComponent implements OnInit {
     code: null,
     _id: null
   }
+  pets: any
+  pet : any = {
+    _id: null,
+    customer_id: null ,
+    name: null,
+    remark: null
+  }
+  symptom :any = {
+    sickness: 547
+  }
   _id: string | undefined | null = null
 
   constructor(private shareService:ShareService, private http:HttpClient) { }
@@ -36,6 +46,24 @@ export class CheckupComponent implements OnInit {
 
   chooseCustomer(customer: Customer){
     this.customer = customer;
+    this.loadPet();
+  }
+
+  choosePet(pet: Customer){
+    this.pet = pet;
+    // this.loadPet();
+    console.log(pet);
+    
+  }
+
+  loadPet(){
+    let path = this.shareService.serverPath+"/petOfCustomer"
+    this.http.post(path,this.customer).subscribe((res:any)=>{this.pets = res; console.log(res)})
+  }
+
+  saveSymptom(){
+    console.log(this.symptom);
+    
   }
 
 }
