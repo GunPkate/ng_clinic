@@ -64,7 +64,27 @@
                 <label>Medical Check-up</label>
             </div>
             <div class="box box-body">
-                [table]
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Symptom</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of checkUp">
+                            <td>
+                                <a class="btn btn-danger" >
+                                    <i class="fa fa-times"></i>
+                                </a>&nbsp;
+                                <a class="btn btn-primary" data-toggle="modal" data-target="#modalCustomer">
+                                    <i class="fa fa-pencil"></i>
+                                </a>
+                            </td>
+                            <td>{{item.symptom}}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

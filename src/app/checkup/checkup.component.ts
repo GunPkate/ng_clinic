@@ -24,8 +24,10 @@ export class CheckupComponent implements OnInit {
     remark: null
   }
   symptom :any = {
-    sickness: 547
+    // sickness: 547
   }
+  checkUp :any = {}
+
   _id: string | undefined | null = null
 
   constructor(private shareService:ShareService, private http:HttpClient) { }
@@ -53,7 +55,7 @@ export class CheckupComponent implements OnInit {
     this.pet = pet;
     // this.loadPet();
     console.log(pet);
-    
+    this.loadMedicalCheckUp()
   }
 
   loadPet(){
@@ -63,7 +65,22 @@ export class CheckupComponent implements OnInit {
 
   saveSymptom(){
     console.log(this.symptom);
-    
+    let params = {
+      symptom :this.symptom ,
+      pet: this.pet
+    }
+    this.http.post(this.shareService.serverPath+"/symptom",params).subscribe((res:any)=>{console.log(res)})
+    this.loadMedicalCheckUp()
+    alert("Symptom Saved")
   }
 
+  loadMedicalCheckUp(){
+    let params = {
+      pet_id: this.pet._id
+    }
+    this.http.post(this.shareService.serverPath+"/petCheckUp",params).subscribe((res:any)=>{
+      console.log("checkUp",res)
+      this.checkUp = res
+    })
+  }
 }
