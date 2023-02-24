@@ -24,7 +24,7 @@ export class CheckupComponent implements OnInit {
     remark: null
   }
   symptom :any = {
-    // sickness: 547
+    symptom: "input sickness"
   }
   checkUp :any = {}
 
