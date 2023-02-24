@@ -47,7 +47,7 @@
                 <div class="form-group">
                     <label>symptom {{pet.name }}</label>
                     <input type="text" class="form-control" readonly="readonly" value="{{pet.name}}"/>
-                    <input type="text" class="form-control" name="symptom.sickness" [(ngModel)]="symptom.sickness"/>
+                    <input type="text" class="form-control" name="symptom.sickness" [(ngModel)]="symptom.sickness" value="{{symptom.sickness}}"/>
                 </div>
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -74,10 +74,10 @@
                     <tbody>
                         <tr *ngFor="let item of checkUp">
                             <td>
-                                <a class="btn btn-danger" >
+                                <a class="btn btn-danger" (click)="removeSymptom(item)">
                                     <i class="fa fa-times"></i>
                                 </a>&nbsp;
-                                <a class="btn btn-primary" data-toggle="modal" data-target="#modalCustomer">
+                                <a class="btn btn-primary" (click)="updateSymtom(item)">
                                     <i class="fa fa-pencil"></i>
                                 </a>
                             </td>

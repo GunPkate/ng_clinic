@@ -72,6 +72,7 @@ export class CheckupComponent implements OnInit {
     this.http.post(this.shareService.serverPath+"/symptom",params).subscribe((res:any)=>{console.log(res)})
     this.loadMedicalCheckUp()
     alert("Symptom Saved")
+    this.symptom = {}
   }
 
   loadMedicalCheckUp(){
@@ -82,5 +83,21 @@ export class CheckupComponent implements OnInit {
       console.log("checkUp",res)
       this.checkUp = res
     })
+  }
+
+  removeSymptom(symptom: any){
+    if(confirm("Delete symptom")){
+      let params = {
+        _id: symptom._id
+      }
+      this.http.post(this.shareService.serverPath+"/deleteSymptom",params).subscribe((res:any)=>{})
+      this.loadMedicalCheckUp()
+    }
+  }
+
+  updateSymtom(symptom: any){
+    this.symptom = symptom
+    console.log(symptom)
+    console.log(this.symptom)
   }
 }
