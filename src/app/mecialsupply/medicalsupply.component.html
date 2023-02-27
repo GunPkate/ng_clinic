@@ -7,37 +7,35 @@
             <i class="fa fa-plus"></i>Add
         </a>
         <div>
-            [table]
-        </div>
-        <!-- <table class="table">
+            <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th></th>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th>Address</th>
-                    <th>Line ID</th>
+                    <th>Id<th>
+                    <th>Name<th>
+                    <th>Remark<th>
+                    <th>Cost price<th>
+                    <th>Sale price<th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <tr *ngFor="let item of med_supplies">
                     <td>
-                        <a class="btn btn-danger">
+                        <a class="btn btn-danger"  (click)="deleteSupply(item)">
                             <i class="fa fa-times"></i>
                         </a>&nbsp;
-                        <a class="btn btn-primary">
-                            <i class="fa fa-pencil"></i>
+                        <a class="btn btn-primary" (click)="infoSupply(item)" data-toggle="modal" data-target="#modalMedicalSupply">
+                            <i class="fa fa-pencil" ></i>
                         </a>
                     </td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>{{item.id}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.remark}}</td>
+                    <td>{{item.cost_price}}</td>
+                    <td>{{item.sale_price}}</td>
                 </tr>
             </tbody>
-        </table> -->
+        </table>
+        </div>
     </div>
 </div>
 
@@ -57,38 +55,38 @@
                     <div class="col-lg-3 col-md-3 col-sm-4">
                         <div class="from-group">
                             <label>ID</label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" [(ngModel)]="id">
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-4">
                         <div class="from-group">
                             <label>Name</label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" [(ngModel)]="name">
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-4">
                         <div class="from-group">
                             <label>Cost Price</label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" [(ngModel)]="cost_price">
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-4">
                         <div class="from-group">
                             <label>Sell Price</label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" [(ngModel)]="sale_price">
                         </div>
                     </div>
                     <div class="col-lg-12 col-md-3 col-sm-4">
                         <div class="from-group">
                             <label>Remark</label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" [(ngModel)]="remark">
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
                 <div class="row text-center">
-                    <button type="button" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-primary" (click)="saveSupply()" data-dismiss="modal">Save</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                 </div>
             </div>
