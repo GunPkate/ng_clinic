@@ -27,6 +27,7 @@ export class CheckupComponent implements OnInit {
     symptom: "input sickness"
   }
   checkUp :any = {}
+  medicalSupplies: any
 
   _id: string | undefined | null = null
 
@@ -99,5 +100,13 @@ export class CheckupComponent implements OnInit {
     this.symptom = symptom
     console.log(symptom)
     console.log(this.symptom)
+  }
+
+  
+  getMedicalSupply(){
+    this.http.get(this.shareService.serverPath+"/getSupply").subscribe((res:any)=>{
+      this.medicalSupplies = res;
+      console.log(res);
+    })
   }
 }
