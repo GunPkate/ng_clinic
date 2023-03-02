@@ -166,7 +166,7 @@
                     <tbody>
                         <tr *ngFor="let item of medicalSupplies">
                             <td>
-                                <a data-dismiss="modal"  class="btn btn-primary">
+                                <a data-dismiss="modal"  class="btn btn-primary" data-toggle="modal"  data-target="#modalMedicalSupplyDetail">
                                     <i class="fa fa-check"></i>
                                     choose 
                                 </a>
@@ -178,6 +178,37 @@
                         </tr>
                     </tbody>
                 </table>
+            </div>
+            <div class="modal-footer">
+                <div class="row text-center">
+                    <button type="button" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" tabindex="-1" id="modalMedicalSupplyDetail" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <h5 class="modal-title">
+                    <i class="fa fa-plus"></i>&nbsp; Details
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                            <div class="form-group">
+                                <label>QTY</label>    
+                                <input type="text" name="qty" placeholder="number" class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <label>Remark</label>
+                                <input type="text" name="remark" placeholder="remark" class="form-control"/>
+                            </div>
             </div>
             <div class="modal-footer">
                 <div class="row text-center">
