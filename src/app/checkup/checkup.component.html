@@ -82,6 +82,9 @@
                                 </a>&nbsp;
                                 <a class="btn btn-primary" (click)="getMedicalSupply(checkUp)" data-toggle="modal" data-target="#modalMedicalSupply">
                                     <i class="fa fa-list"></i>
+                                </a>&nbsp;
+                                <a class="btn btn-primary" (click)="getHistory(checkUp)" data-toggle="modal" data-target="#modalHistory">
+                                    <i class="fa fa-list"></i>
                                 </a>
                             </td>
                             <td>{{checkUp.symptom}}</td>
@@ -212,7 +215,39 @@
             </div>
             <div class="modal-footer">
                 <div class="row text-center">
-                    <button type="button" class="btn btn-primary" (click)="savePrescription()">Save</button>
+                    <button type="button" class="btn btn-primary" (click)="savePrescription()" data-dismiss="modal" >Save</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" tabindex="-1" id="modalHistory" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <h5 class="modal-title">
+                    <i class="fa fa-plus"></i>&nbsp; Details
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                        [table]
+                            <!-- <div class="form-group">
+                                <label>QTY</label>    
+                                <input type="text" name="qty" [(ngModel)]="prescription.qty" class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <label>Remark</label>
+                                <input type="text" name="remark" [(ngModel)]="prescription.remark" class="form-control"/>
+                            </div> -->
+            </div>
+            <div class="modal-footer">
+                <div class="row text-center">
+                    <button type="button" class="btn btn-primary">Save</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                 </div>
             </div>

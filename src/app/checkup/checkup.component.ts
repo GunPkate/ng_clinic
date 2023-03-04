@@ -2,6 +2,7 @@ import { ShareService } from './../sharedservice';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Customer } from '../interface/customer';
+// var $ = require( "jquery" );
 
 @Component({
   selector: 'app-checkup',
@@ -73,15 +74,16 @@ export class CheckupComponent implements OnInit {
   }
 
   saveSymptom(){
-    console.log(this.symptom);
     let params = {
-      symptom :this.symptom ,
+      symptom :this.symptom.symptom ,
       pet: this.pet
     }
+    console.log("save Params",params);
     this.http.post(this.shareService.serverPath+"/symptom",params).subscribe((res:any)=>{console.log(res)})
     this.loadMedicalCheckUp()
     alert("Symptom Saved")
     this.symptom = {}
+    
   }
 
   loadMedicalCheckUp(){
@@ -136,8 +138,13 @@ export class CheckupComponent implements OnInit {
       remark: this.prescription.remark,
       symptom_id: this.prescription.symptom_id
     }
-      this.http.post(this.shareService.serverPath+"/savePrescription",params).subscribe((res:any)=>{console.log(res)})
-      // alert("Symptom Saved")
+    this.http.post(this.shareService.serverPath+"/savePrescription",params).subscribe((res:any)=>{console.log(res)})
+    // alert("Symptom Saved")
+    // $('#modalMedicalSupplyDetail').modal('hide')
     }
+  }
+
+  getHistory(checkUp: any){
+    // this.http.get(this.shareService.serverPath+"/getHistory").subscribe((res: any)=>{console.log("get medical History",res);})
   }
 }
