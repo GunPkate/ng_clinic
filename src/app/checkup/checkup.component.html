@@ -72,19 +72,19 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let item of checkUp">
+                        <tr *ngFor="let checkUp of checkUps">
                             <td>
-                                <a class="btn btn-danger" (click)="removeSymptom(item)">
+                                <a class="btn btn-danger" (click)="removeSymptom(checkUp)">
                                     <i class="fa fa-times"></i>
                                 </a>&nbsp;
-                                <a class="btn btn-primary" (click)="updateSymtom(item)">
+                                <a class="btn btn-primary" (click)="updateSymtom(checkUp)">
                                     <i class="fa fa-pencil"></i>
                                 </a>&nbsp;
-                                <a class="btn btn-primary" (click)="getMedicalSupply()" data-toggle="modal" data-target="#modalMedicalSupply">
+                                <a class="btn btn-primary" (click)="getMedicalSupply(checkUp)" data-toggle="modal" data-target="#modalMedicalSupply">
                                     <i class="fa fa-list"></i>
                                 </a>
                             </td>
-                            <td>{{item.symptom}}</td>
+                            <td>{{checkUp.symptom}}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -115,16 +115,16 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let item of customers">
+                        <tr *ngFor="let customer of customers">
                             <td>
-                                <a data-dismiss="modal" (click)="chooseCustomer(item)" class="btn btn-primary">
+                                <a data-dismiss="modal" (click)="chooseCustomer(customer)" class="btn btn-primary">
                                     <i class="fa fa-check"></i>
                                     choose 
                                 </a>
                             </td>
-                            <td>{{item.code}}</td>
-                            <td>{{item.name}}</td>
-                            <td>{{item.tel}}</td>
+                            <td>{{customer.code}}</td>
+                            <td>{{customer.name}}</td>
+                            <td>{{customer.tel}}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -166,7 +166,7 @@
                     <tbody>
                         <tr *ngFor="let item of medicalSupplies">
                             <td>
-                                <a data-dismiss="modal"  class="btn btn-primary" data-toggle="modal"  data-target="#modalMedicalSupplyDetail">
+                                <a data-dismiss="modal" (click)="getPrescription(item)"  class="btn btn-primary" data-toggle="modal"  data-target="#modalMedicalSupplyDetail">
                                     <i class="fa fa-check"></i>
                                     choose 
                                 </a>
@@ -203,16 +203,16 @@
             <div class="modal-body">
                             <div class="form-group">
                                 <label>QTY</label>    
-                                <input type="text" name="qty" placeholder="number" class="form-control"/>
+                                <input type="text" name="qty" [(ngModel)]="prescription.qty" class="form-control"/>
                             </div>
                             <div class="form-group">
                                 <label>Remark</label>
-                                <input type="text" name="remark" placeholder="remark" class="form-control"/>
+                                <input type="text" name="remark" [(ngModel)]="prescription.remark" class="form-control"/>
                             </div>
             </div>
             <div class="modal-footer">
                 <div class="row text-center">
-                    <button type="button" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-primary" (click)="savePrescription()">Save</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                 </div>
             </div>

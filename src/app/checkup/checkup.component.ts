@@ -26,8 +26,16 @@ export class CheckupComponent implements OnInit {
   symptom :any = {
     symptom: "input sickness"
   }
-  checkUp :any = {}
+  checkUps :any = {}
   medicalSupplies: any
+  prescription:any = {
+    // prescription: null,
+    _id: null,
+    qty: null,
+    remark: null,
+    medicalSupply_id: null,
+    symptom_id: null
+  } 
 
   _id: string | undefined | null = null
 
@@ -82,7 +90,7 @@ export class CheckupComponent implements OnInit {
     }
     this.http.post(this.shareService.serverPath+"/petCheckUp",params).subscribe((res:any)=>{
       console.log("checkUp",res)
-      this.checkUp = res
+      this.checkUps = res
     })
   }
 
@@ -103,10 +111,33 @@ export class CheckupComponent implements OnInit {
   }
 
   
-  getMedicalSupply(){
+  getMedicalSupply(symptom: any){
+    this.prescription.symptom_id = symptom._id
     this.http.get(this.shareService.serverPath+"/getSupply").subscribe((res:any)=>{
       this.medicalSupplies = res;
       console.log(res);
     })
+  }
+
+  getPrescription(item: any){
+    // this.prescription.prescription= item.
+    this.prescription.medicalSupply_id = item._id
+    // this.prescription.qty = item.qty
+    // this.prescription.remark= item.remark
+    console.log("get prescription",this.prescription)
+    console.log("get item",item)
+  }
+
+  savePrescription(){
+    if(confirm("save prescription")){
+    let params = {
+      medicalSupply_id: this.prescription.medicalSupply_id,
+      qty: this.prescription.qty,
+      remark: this.prescription.remark,
+      symptom_id: this.prescription.symptom_id
+    }
+      this.http.post(this.shareService.serverPath+"/savePrescription",params).subscribe((res:any)=>{console.log(res)})
+      // alert("Symptom Saved")
+    }
   }
 }

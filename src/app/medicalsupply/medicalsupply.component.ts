@@ -57,8 +57,6 @@ export class MedicalSupplyComponent implements OnInit {
             _id: null
         }
 
-
-
       })
       this._id  = null
       this.id  = null
