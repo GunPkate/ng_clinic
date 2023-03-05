@@ -25,7 +25,9 @@ export class CheckupComponent implements OnInit {
     remark: null
   }
   symptom :any = {
-    symptom: "input sickness"
+    symptom: "",
+    price: "",
+    remark: ""
   }
   checkUps :any = {}
   medicalSupplies: any
@@ -77,6 +79,8 @@ export class CheckupComponent implements OnInit {
   saveSymptom(){
     let params = {
       symptom :this.symptom.symptom ,
+      price :this.symptom.price ,
+      remark :this.symptom.remark ,
       pet: this.pet
     }
     console.log("save Params",params);

@@ -45,9 +45,14 @@
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12">
                 <div class="form-group">
-                    <label>symptom {{pet.name }}</label>
+                    <label>Pet's name {{pet.name }}</label>
                     <input type="text" class="form-control" readonly="readonly" value="{{pet.name}}"/>
-                    <input type="text" class="form-control" name="symptom.symptom" [(ngModel)]="symptom.symptom" />
+                    <label>Symptom </label>
+                    <input type="text" class="form-control" name="symptom.symptom" [(ngModel)]="symptom.symptom" placeholder="symptom"/>
+                    <label>Price</label>
+                    <input type="text" class="form-control" name="symptom.price" [(ngModel)]="symptom.price" placeholder="price"/>
+                    <label>Remark</label>
+                    <input type="text" class="form-control" name="symptom.remark" [(ngModel)]="symptom.remark" placeholder="remark"/>
                 </div>
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -69,6 +74,9 @@
                         <tr>
                             <th></th>
                             <th>Symptom</th>
+                            <th>Price</th>
+                            <th>Remark</th>
+                            <th>Date</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -88,6 +96,9 @@
                                 </a>
                             </td>
                             <td>{{checkUp.symptom}}</td>
+                            <td>{{checkUp.price?checkUp.price:""}}</td>
+                            <td>{{checkUp.remark?checkUp.remark:""}}</td>
+                            <td>{{checkUp.remark?checkUp.created_at:""}}</td>
                         </tr>
                     </tbody>
                 </table>
