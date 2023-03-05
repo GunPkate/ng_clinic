@@ -149,4 +149,15 @@ export class CheckupComponent implements OnInit {
     console.log(checkUp);
     this.http.post(this.shareService.serverPath+"/getHistory",checkUp).subscribe((res: any)=>{console.log("get medical History",this.checkUpHistories = res);})
   }
+
+  removeHistory(checkUp: any){
+    if(confirm("delete?")){ 
+      this.http.post(this.shareService.serverPath+"/deleteHistory",checkUp).subscribe((res: any)=>{})
+      this.getHistory(checkUp);
+    }
+  }
+
+  editData(item: any){
+    this.prescription = item
+  }
 }

@@ -192,6 +192,55 @@
     </div>
 </div>
 
+<div class="modal" tabindex="-1" id="modalHistory" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <h5 class="modal-title">
+                    <i class="fa fa-plus"></i>&nbsp; Details
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Name</th>
+                            <th>QTY</th>
+                            <th>Remark</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of checkUpHistories">
+                            <td>
+                                <a class="btn btn-danger" (click)="removeHistory(item)">
+                                    <i class="fa fa-times"></i>
+                                </a>&nbsp;
+                                <a class="btn btn-primary" (click)="editData(item)" data-toggle="modal"  data-target="#modalMedicalSupplyDetail"  >
+                                <!-- <a class="btn btn-primary" (click)="updateHistory(item)"  > -->
+                                    <i class="fa fa-pencil"></i>
+                                </a>&nbsp;
+                            </td>
+                            <td>{{item.medicalSupply[0].name}}</td>
+                            <td>{{item.qty}}</td>
+                            <td>{{item.remark}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <div class="row text-center">
+                    <button type="button" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="modal" tabindex="-1" id="modalMedicalSupplyDetail" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -216,51 +265,6 @@
             <div class="modal-footer">
                 <div class="row text-center">
                     <button type="button" class="btn btn-primary" (click)="savePrescription()" data-dismiss="modal" >Save</button>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal" tabindex="-1" id="modalHistory" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header bg-primary">
-                <h5 class="modal-title">
-                    <i class="fa fa-plus"></i>&nbsp; Details
-                </h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>QTY</th>
-                            <th>Remark</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let item of checkUpHistories">
-                            <td>
-                                <a data-dismiss="modal" class="btn btn-primary">
-                                    <i class="fa fa-check"></i>
-                                    choose 
-                                </a>
-                            </td>
-                            <td>{{item.medicalSupply[0].name}}</td>
-                            <td>{{item.qty}}</td>
-                            <td>{{item.remark}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="modal-footer">
-                <div class="row text-center">
-                    <button type="button" class="btn btn-primary">Save</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                 </div>
             </div>
