@@ -2,7 +2,7 @@ import { ShareService } from './../sharedservice';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Customer } from '../interface/customer';
-// var $ = require( "jquery" );
+declare function closeModal(): any;
 
 @Component({
   selector: 'app-checkup',
@@ -39,6 +39,7 @@ export class CheckupComponent implements OnInit {
   } 
 
   _id: string | undefined | null = null
+  checkUpHistories: any
 
   constructor(private shareService:ShareService, private http:HttpClient) { }
 
@@ -140,11 +141,12 @@ export class CheckupComponent implements OnInit {
     }
     this.http.post(this.shareService.serverPath+"/savePrescription",params).subscribe((res:any)=>{console.log(res)})
     // alert("Symptom Saved")
-    // $('#modalMedicalSupplyDetail').modal('hide')
+    closeModal()
     }
   }
 
   getHistory(checkUp: any){
-    // this.http.get(this.shareService.serverPath+"/getHistory").subscribe((res: any)=>{console.log("get medical History",res);})
+    console.log(checkUp);
+    this.http.post(this.shareService.serverPath+"/getHistory",checkUp).subscribe((res: any)=>{console.log("get medical History",this.checkUpHistories = res);})
   }
 }
