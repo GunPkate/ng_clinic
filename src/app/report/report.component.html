@@ -7,26 +7,41 @@
             <div class="col-lg-5 col-md-5 col-sm-5">
                 <div class="input-group">
                     <span class="input-group-addon">Start Date</span>
-                    <input type="text" class="form-control"/>
+                    <input type="text" class="form-control" type ="date" [(ngModel)]="search.from"/>
                 </div>
             </div>
             <div class="col-lg-5 col-md-5 col-sm-5">
                 <div class="input-group">
                     <span class="input-group-addon">End Date</span>
-                    <input type="text" class="form-control"/>
+                    <input type="text" class="form-control" type ="date" [(ngModel)]="search.to"/>
                 </div>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-2">
-                <a class="btn btn-primary">
+                <a class="btn btn-primary" (click)="showReport()">
                     <i class="fa fa-check"></i>Show
                 </a>
             </div>
         </div>
         <div>
-            [table]
+            <table class="table table-bordered">
+                <tr>
+                    <th>Date</th>
+                    <th>Customer</th>
+                    <th>Pet</th>
+                    <th>Price</th>
+                    <th>Symptom</th>
+                </tr>
+                <tr *ngFor="let item of reports">
+                    <td>{{item.created_at | date: 'dd/MM/yyyy HH:mm'}}</td>
+                    <td>{{item.customer.name?item.customer.name:"N/A"}}</td>
+                    <td>{{item.pet.name?item.pet.name:"N/A"}}</td>
+                    <td>{{item.price}}</td>
+                    <td>{{item.symptom}}</td>
+                </tr>
+            </table>
         </div>
         <div class="text-center">
-            <font size="6">Total Sale <span  class="text-danger"> xxxxx</span> Baht</font>
+            <font size="6">Total Sale <span  class="text-danger"> {{totalPrice}} </span> Baht</font>
         </div>
     </div>
 </div>
