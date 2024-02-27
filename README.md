@@ -1,27 +1,63 @@
-# MyApp
+# Angular Clinic POS
+## _The Last Markdown Editor, Ever_
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.4.
+[![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
 
-## Development server
+[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Angular Clinic POS consist of 
+#1. Angular 14 use routing to navigate to form pages and report pages and get data by HTTP client module
+#2. js Express 
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Functional Req
 
-## Build
+- Register(Add) Customer, Pet, Medical Supply and Treatment 
+- Edit or Delete Customer, Pet, Medical Supply and Treatment 
+- Summary treatment price and make report
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## Tech
+| Front End | Description |
+| ------ | ------ |
+| Angular 14 | HTML enhanced for web apps! |
+| HTTP Client module | connect API |
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
+| Back End | Description |
+| ------ | ------ |
+| Express |  fast node.js network app framework  |
+| node.js] |   evented I/O for the backend |
+| mongoose |   connect to NoSQL MongoDB and apply Schema to Front End Interface |
+| morgan |   log request response status|
+| nodemon |   automatically restarting the node application|
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Tech
+| REST API Methods | Description |
+| ------ | ------ |
+| loadInfo() | HTML enhanced for web apps! |
+| save() | connect API |
+
+
+## Installation
+
+ requires [Node.js](https://nodejs.org/) v16+ to run.
+
+Express
+
+```sh
+npm i
+node app
+```
+
+Angular
+
+```sh
+npm i
+ng serve -o
+```
+
+
+
